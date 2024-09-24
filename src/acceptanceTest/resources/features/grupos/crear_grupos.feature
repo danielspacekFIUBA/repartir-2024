@@ -38,7 +38,6 @@ Característica: Crear Grupo para repartir gastos
 
   Regla: Los grupos no pueden tener miembros repetidos
 
-    @pendiente
     Escenario: No puedo crear un grupo con 2 miembros repetidos
       Dado que el usuario inició Repartir
       Cuando el usuario crea un grupo con un unico miembro repetido
