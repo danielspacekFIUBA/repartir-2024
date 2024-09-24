@@ -41,17 +41,17 @@ Característica: Crear Grupo para repartir gastos
     @pendiente
     Escenario: No puedo crear un grupo con 2 miembros repetidos
       Dado que el usuario inició Repartir
-      Cuando el usuario crea un grupo con 2 miembros llamados 'daniel'
-      Entonces no deberia crear el grupo con usuarios repetidos
+      Cuando el usuario crea un grupo con un unico miembro repetido
+      Entonces no deberia crear el grupo con miembros repetidos
 
     @pendiente
     Escenario: No puedo crear un grupo con 3 miembros, de los cuales 2 están repetidos
       Dado que el usuario inició Repartir
-      Cuando el usuario crea un grupo con 2 miembros llamados 'daniel' y otro miembro 'omar'
-      Entonces no deberia crear el grupo con usuarios repetidos
+      Cuando el usuario crea un grupo con dos miembros llamados 'daniel' y otro miembro llamado 'omar'
+      Entonces no deberia crear el grupo con miembros repetidos
 
     @pendiente
     Escenario: Puedo repetir miembros en grupos distintos
       Dado que el usuario inició Repartir
-      Cuando el usuario crea udos grupo con dos miembros llamados 'daniel' y 'omar'
+      Cuando el usuario crea udos grupo con dos miembros distintos
       Entonces debería visualizar los dos grupos dentro del listado
