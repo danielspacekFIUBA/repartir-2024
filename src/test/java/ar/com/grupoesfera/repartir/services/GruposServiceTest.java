@@ -2,10 +2,12 @@ package ar.com.grupoesfera.repartir.services;
 
 import ar.com.grupoesfera.repartir.exceptions.GrupoInvalidoException;
 import ar.com.grupoesfera.repartir.exceptions.GrupoNoEncontradoException;
+import ar.com.grupoesfera.repartir.exceptions.MiembroRepetidoException;
 import ar.com.grupoesfera.repartir.model.Gasto;
 import ar.com.grupoesfera.repartir.model.Grupo;
 import ar.com.grupoesfera.repartir.repositories.GruposRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -171,4 +173,19 @@ class GruposServiceTest {
         gasto.setMonto(BigDecimal.valueOf(9700,2));
         return gasto;
     }
+
+    @Disabled("No implementado")
+    @Test
+    void crearGrupoLanzaExcepcionSiElGrupoTieneMiembrosRepetidos() {
+
+        Grupo grupoInvalidoMiembrosRepetidos = new Grupo();
+        grupoInvalidoMiembrosRepetidos.setNombre("Futbol 2");
+
+        grupoInvalidoMiembrosRepetidos.setMiembros(asList("Diego", "Diego"));
+
+        assertThrows(MiembroRepetidoException.class, () -> {
+            grupos.crear(grupoInvalidoMiembrosRepetidos);
+        });
+    }
+
 }
