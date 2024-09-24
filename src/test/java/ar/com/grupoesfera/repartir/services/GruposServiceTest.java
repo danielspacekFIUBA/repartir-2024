@@ -174,7 +174,6 @@ class GruposServiceTest {
         return gasto;
     }
 
-    @Disabled("No implementado")
     @Test
     void crearGrupoLanzaExcepcionSiElGrupoTieneMiembrosRepetidos() {
 
@@ -183,9 +182,6 @@ class GruposServiceTest {
 
         grupoInvalidoMiembrosRepetidos.setMiembros(asList("Diego", "Diego"));
 
-        assertThrows(MiembroRepetidoException.class, () -> {
-            grupos.crear(grupoInvalidoMiembrosRepetidos);
-        });
+        assertThrows(MiembroRepetidoException.class, () -> grupos.crear(grupoInvalidoMiembrosRepetidos));
     }
-
 }

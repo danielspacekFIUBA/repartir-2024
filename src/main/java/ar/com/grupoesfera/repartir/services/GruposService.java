@@ -2,6 +2,7 @@ package ar.com.grupoesfera.repartir.services;
 
 import ar.com.grupoesfera.repartir.exceptions.GrupoInvalidoException;
 import ar.com.grupoesfera.repartir.exceptions.GrupoNoEncontradoException;
+import ar.com.grupoesfera.repartir.exceptions.MiembroRepetidoException;
 import ar.com.grupoesfera.repartir.model.Gasto;
 import ar.com.grupoesfera.repartir.model.Grupo;
 import ar.com.grupoesfera.repartir.repositories.GruposRepository;
@@ -40,6 +41,10 @@ public class GruposService {
     }
 
     private void validar(Grupo nuevoGrupo) {
+        if(nuevoGrupo.tieneMiembrosRepetidos()){
+            throw new MiembroRepetidoException();
+        }
+
         if (!nuevoGrupo.estaFormado()) {
             throw new GrupoInvalidoException();
         }
