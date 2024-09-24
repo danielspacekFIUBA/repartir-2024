@@ -69,6 +69,12 @@ public class Grupo {
 
     public boolean estaFormado() {
 
-        return (miembros != null) && (miembros.size() > 1);
+        return (miembros != null) && (miembros.size() > 1) && !tieneMiembrosRepetidos();
+    }
+
+    public boolean tieneMiembrosRepetidos() {
+        var miembrosSinRepetir = this.miembros.stream().distinct().count();
+        var miembrosTotales = this.miembros.size();
+        return miembrosSinRepetir != miembrosTotales;
     }
 }
