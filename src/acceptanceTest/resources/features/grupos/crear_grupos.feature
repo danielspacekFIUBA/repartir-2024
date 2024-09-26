@@ -48,8 +48,7 @@ Característica: Crear Grupo para repartir gastos
       Cuando el usuario crea un grupo con dos miembros llamados 'daniel' y otro miembro llamado 'omar'
       Entonces no deberia crear el grupo con miembros repetidos
 
-    @pendiente
     Escenario: Puedo repetir miembros en grupos distintos
       Dado que el usuario inició Repartir
-      Cuando el usuario crea udos grupo con dos miembros distintos
-      Entonces debería visualizar los dos grupos dentro del listado
+      Cuando el usuario crea 2 grupos con los mismos miembros en cada uno de ellos
+      Entonces debería visualizar los grupos dentro del listado
