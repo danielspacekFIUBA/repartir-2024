@@ -46,9 +46,26 @@ public class MiembrosSinRepetirSteps  extends CucumberSteps {
     }
 
     @Cuando("el usuario crea un grupo con dos miembros llamados {string} y otro miembro llamado {string}")
-    public void el_usuario_crea_un_grupo_dos_miembros_llamados_y_otro_miembro_llamado(String miembro1, String miembro2) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void el_usuario_crea_un_grupo_dos_miembros_llamados_y_otro_miembro_llamado(String miembroRepetido, String miembroSinRepetir) {
+        var crearGruposButton = driver.findElement(By.id("crearGruposButton"));
+        crearGruposButton.click();
+
+        driver.findElement(By.id("nombreGrupoNuevoInput")).sendKeys("Truco Gallo");
+
+        var miembrosInput = driver.findElement(By.id("miembrosGrupoNuevoInput"));
+
+        miembrosInput.sendKeys(miembroRepetido);
+        miembrosInput.sendKeys(Keys.ENTER);
+        miembrosInput.sendKeys(miembroRepetido);
+        miembrosInput.sendKeys(Keys.ENTER);
+
+        miembrosInput.sendKeys(miembroSinRepetir);
+        miembrosInput.sendKeys(Keys.ENTER);
+
+        driver.findElement(By.id("guardarGrupoNuevoButton")).click();
+
+        var wait = new WebDriverWait(driver, 2);
+        wait.until(visibilityOfElementLocated(By.id("mensajesToast")));
     }
 
     @Cuando("el usuario crea udos grupo con dos miembros distintos")
